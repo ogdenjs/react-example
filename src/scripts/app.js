@@ -59,7 +59,7 @@ const Todos = React.createClass({
     return (
       <div>
         <form onSubmit={this.addTodo}>
-          <input type="text" onChange={this.handleInputChange} value={this.state.newTodo} />
+          <input type="text" placeholder="Enter a new todo" onChange={this.handleInputChange} value={this.state.newTodo} />
         </form>
 
         <ul>{todos}</ul>
