@@ -51,7 +51,7 @@ const Todos = React.createClass({
       return (
         <li key={todo}>
           {todo}
-          <button onClick={this.deleteTodo.bind(this, todo)}>x</button>
+          <i className="trash fa fa-trash-o" onClick={this.deleteTodo.bind(this, todo)} />
         </li>
       )
     })
@@ -61,8 +61,6 @@ const Todos = React.createClass({
         <form onSubmit={this.addTodo}>
           <input type="text" onChange={this.handleInputChange} value={this.state.newTodo} />
         </form>
-
-        <br /> <br />
 
         <ul>{todos}</ul>
       </div>
