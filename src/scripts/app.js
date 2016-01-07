@@ -1,79 +1,70 @@
 import React from 'react'
 import { render } from 'react-dom'
-import md5 from 'md5'
+import moment from 'moment'
+import _ from 'lodash'
 
 const App = React.createClass({
-  getInitialState() {
-    return {
-      msg: 'Props are awesome!',
-      inputMsg: 'This is a string from the input field!'
-    }
-  },
-
-  changeMessage() {
-    let newMsg = prompt('Enter a new message')
-    this.setState({msg: newMsg})
-  },
-
-  changeInputMsg(e) {
-    this.setState({inputMsg: e.target.value})
-  },
-
   render() {
     return (
       <div>
-        <h1>React Example</h1>
-        <br />
-
-        <Message msg={this.state.msg} />
-        <button onClick={this.changeMessage}>Change this message</button>
-        <br /> <br />
-
-        <p>{this.state.inputMsg}</p>
-        <Input inputMsg={this.state.inputMsg} change={this.changeInputMsg} />
-        <br /> <br />
-
-        <Gravatar />
+        <h1>Todos for {moment().format('ll')}</h1>
+        <Todos />
       </div>
     )
   }
 })
 
-const Message = React.createClass({
-  render() {
-    return (
-      <div>
-        <p>{this.props.msg}</p>
-      </div>
-    )
-  }
-})
-
-const Input = React.createClass({
-  render() {
-    return <input type="text" value={this.props.inputMsg} onChange={this.props.change} />
-  }
-})
-
-const Gravatar = React.createClass({
+const Todos = React.createClass({
   getInitialState() {
     return {
-      email: ''
+      newTodo: '',
+      todos: []
     }
   },
 
-  change(e) {
-    this.setState({email: e.target.value})
+  addTodo(e) {
+    e.preventDefault()
+
+    let todos = this.state.todos
+    todos.unshift(this.state.newTodo)
+
+    this.setState({
+      todos: todos,
+      newTodo: ''
+    })
+  },
+
+  deleteTodo(todo) {
+    let todos = _.without(this.state.todos, todo)
+
+    this.setState({
+      todos: todos
+    })
+  },
+
+  handleInputChange(e) {
+    this.setState({newTodo: e.target.value})
   },
 
   render() {
-    let url = "https://gravatar.com/avatar/" + md5(this.state.email)
+    let todos = _.map(this.state.todos, (todo) => {
+      return (
+        <li key={todo}>
+          {todo}
+          <button onClick={this.deleteTodo.bind(this, todo)}>x</button>
+        </li>
+      )
+    })
 
     return (
       <div>
-        <h2>Gravatar</h2>
-        <img src={url} /><br />
-        <input type="text" placeholder="Gravatar Email Address" value={this.state.email} onChange={this.change} />
+        <form onSubmit={this.addTodo}>
+          <input type="text" onChange={this.handleInputChange} value={this.state.newTodo} />
+        </form>
+
+        <br /> <br />
+
+        <ul>{todos}</ul>
       </div>
     )
   }

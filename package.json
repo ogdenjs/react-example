@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/ogdenjs/react-example#readme",
   "dependencies": {
-    "md5": "2.0.0",
+    "lodash": "3.10.1",
+    "moment": "2.11.0",
     "react": "0.14.6",
     "react-dom": "0.14.6"
   },
