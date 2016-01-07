@@ -1,4 +1,9 @@
 {
-  "name": "react-todo",
-  "root": "dist"
+  "name": "react-example",
+  "root": "dist",
+  "build": {
+    "babelPresets": [
+      "react"
+    ]
+  }
 }

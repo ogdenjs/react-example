@@ -1,0 +1,28 @@
+{
+  "name": "react-example",
+  "version": "1.0.0",
+  "description": "ogdenjs presentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ogdenjs/react-example.git"
+  },
+  "keywords": [],
+  "author": "Jason Maurer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ogdenjs/react-example/issues"
+  },
+  "homepage": "https://github.com/ogdenjs/react-example#readme",
+  "dependencies": {
+    "md5": "2.0.0",
+    "react": "0.14.6",
+    "react-dom": "0.14.6"
+  },
+  "devDependencies": {
+    "babel-preset-react": "6.3.13"
+  }
+}
