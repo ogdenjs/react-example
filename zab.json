@@ -1,4 +1,7 @@
 {
   "name": "react-todo",
-  "root": "dist"
+  "root": "dist",
+  "build": {
+    "babelPresets": ["react"]
+  }
 }

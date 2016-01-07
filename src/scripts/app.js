@@ -1,3 +1,1 @@
-import welcome from './welcome'
-
-welcome()
+console.log('welcome')
