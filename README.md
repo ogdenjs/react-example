@@ -6,6 +6,5 @@
 3. ```npm init -y```
 4. ```npm install``` <-- installs package dependencies (react, moment, etc.)
 5. ```zab watch --open```
->>>>>>> finished
 
 ![Zab Logo](http://cdn.zab.io/logo/logo-150.png)
